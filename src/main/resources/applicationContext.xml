@@ -22,7 +22,11 @@
     </bean>
 
     <bean id="musicPlayer"
-        class = "ru.kalyanov.spring.MusicPlayer">
+        class = "ru.kalyanov.spring.MusicPlayer"
+        scope="prototype">
+
+
+
         <property name="musicList">
             <list>
                 <ref bean="rockBean"/>
