@@ -2,24 +2,15 @@ package ru.kalyanov.spring;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
 @Component
 public class ClassicalMusic implements Music {
-    private ClassicalMusic(){}
-
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
-
-    public void doMyInit() {
-        System.out.println("Doing my initialization");
-    }
-
-    public void doMyDestroy() {
-        System.out.println("Doing my destruction");
-    }
+    private final String[] classicSongsArray = new String[]{"Hungarian Rhapsody", "classic2", "classic3"};
 
     @Override
     public String getSong() {
-        return "Hungarian Rhapsody";
+        Random r = new Random();
+        return classicSongsArray[r.nextInt(classicSongsArray.length)];
     }
 }
