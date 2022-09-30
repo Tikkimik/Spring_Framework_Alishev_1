@@ -1,16 +1,27 @@
 package ru.kalyanov.spring;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
-import java.util.Random;
-
+/**
+ * @author Neil Alishev
+ */
 @Component
 public class ClassicalMusic implements Music {
-    private final String[] classicSongsArray = new String[]{"Hungarian Rhapsody", "classic2", "classic3"};
 
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Doing init");
+    }
+
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Doing destroy");
+    }
     @Override
     public String getSong() {
-        Random r = new Random();
-        return classicSongsArray[r.nextInt(classicSongsArray.length)];
+        return "Hungarian Rhapsody";
     }
 }
