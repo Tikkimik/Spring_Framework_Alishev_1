@@ -26,10 +26,15 @@ public class MusicPlayer {
         this.music3 = music3;
     }
 
-    public String playMusic(Genre gengre) {
-        if (gengre == ){
-
+    public String playMusic(Genre genre) {
+        if (genre == Genre.Rock){
+            return "Playing: " + music1.getSong();
+        } else if (genre == Genre.Jazz){
+            return "Playing: " + music3.getSong();
+        } else if (genre == Genre.Classic){
+            return "Playing: " + music2.getSong();
+        } else {
+            return null;
         }
-        return "Playing: " + music1.getSong() + ", " + music2.getSong() + ", " +  music3.getSong();
     }
 }
